@@ -25,7 +25,7 @@ app.storageQueue('createBookingTrigger', {
 
             context.log(`Start - contextId = ${context.invocationId} at ${new Date()}`);
             //'https://kolam-pancing-paklong-mat-sen-a3anbpcfh3f3fgbq.southeastasia-01.azurewebsites.net/api/booking/save'
-            const resp = await axios.post('https://kolam-pancing-paklong-mat-sen-a3anbpcfh3f3fgbq.southeastasia-01.azurewebsites.net/api/booking/save', {
+            const resp = await axios.post(`${process.env.APPLICATION_URL}/api/booking/save`, {
                 ...queueItem?.data,
             }).catch(e => {
                 console.log(e)

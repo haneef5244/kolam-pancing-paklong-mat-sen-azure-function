@@ -10,7 +10,7 @@ app.timer('paymentStatusChecker', {
         context.log('Timer trigger function executed at: ', timeStamp);
 
         try {
-            const resp = await axios.get('https://kolam-pancing-paklong-mat-sen-a3anbpcfh3f3fgbq.southeastasia-01.azurewebsites.net/api/booking/payment/checker').catch(e => {
+            const resp = await axios.get(`${process.env.APPLICATION_URL}/api/booking/payment/checker`).catch(e => {
                 throw e
             })
             context.log('Payment status checked successfully:', resp.data);
